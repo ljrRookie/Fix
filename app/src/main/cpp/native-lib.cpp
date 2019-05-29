@@ -7,7 +7,7 @@ JNIEXPORT void JNICALL
 Java_com_ljr_fix_DexManager_replace(JNIEnv *env,jclass type,jobject wrongMethod,jobject rightMethod){
 
 //ArtMethod  Android 系统源码中
-    art::mirror::ArtMethod *wrong=  (art::mirror::ArtMethod *)env->FromReflectedMethod(wrongMethod);
+   art::mirror::ArtMethod *wrong=  (art::mirror::ArtMethod *)env->FromReflectedMethod(wrongMethod);
     art::mirror::ArtMethod *right=  (art::mirror::ArtMethod *)env->FromReflectedMethod(rightMethod);
 //    method   --->class  --->ClassLoader
     wrong->declaring_class_ = right->declaring_class_;

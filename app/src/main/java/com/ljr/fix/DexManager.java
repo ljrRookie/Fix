@@ -44,22 +44,20 @@ public class DexManager {
                 continue;
             }
             //            拿到了从网络上下载的 rightMethod
-            //            本地的bug  class   中method
+            //            本地的bug  class   中method.
+
             String clazzName = replace.clazz();
             String methodName = replace.method();
             try {
                 Class wrongClazz = Class.forName(clazzName);
                 Method wrongMethod = wrongClazz.getDeclaredMethod(methodName, rightMethod.getParameterTypes());
-replace(wrongMethod,rightMethod);
+                replace(wrongMethod,rightMethod);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    /**
-     * @param wrongmethod
-     * @param rightMethod
-     */
+
     public native static void replace(Method wrongmethod,Method rightMethod);
 }
